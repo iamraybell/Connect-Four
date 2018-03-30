@@ -54,6 +54,16 @@ namespace SoloC4
                     if (results)
                     {
                         curBoard.DropPiece(nextToMove.GetNum(), inputToInt - 1);
+                        if(curBoard.gameResultsSoFar == true)
+                        {
+                            Console.Clear();
+                            Console.WriteLine($"{nextToMove.GetName()} has won!!!!!!");
+                            this.curBoard.drawBoard();
+                            Console.WriteLine($"Press any key to restart. ");
+                            Console.Read();
+                            curBoard.Reset();
+
+                        }
                         nextToMove = ChangePlayer(nextToMove);
                     }
                     else
